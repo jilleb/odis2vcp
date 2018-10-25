@@ -1,16 +1,21 @@
 # odis2vcp
 Converter for ODIS XML Datasets to VCP XML format.
 
-Usage: 
+## Requirements
+* Installed Python
+
+## Usage 
 `odis2vcp.py [-h] -i IN [-f FMT] -d DESC`
 
-Arguments:
+## Arguments
+```
   -h, --help            show this help message and exit
   -i IN, --in IN        Input file path
   -f FMT, --fmt FMT     Output format: vcp (default) or raw.
   -d DESC, --desc DESC  Output file description. E.g. "Seat Leon 2016"
+``` 
 
-Example: 
+## Example
 `python odis2vcp.py -i ODIS_dataset.xml -d "Seat Leon 2016"`
 
 Result:
