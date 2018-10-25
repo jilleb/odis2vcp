@@ -2,10 +2,11 @@
 Converter for ODIS XML Datasets to VCP XML format.
 
 ## Requirements
-* Installed Python
+* Python
+* If there are any issues regarding missing modules, install them using pip
 
 ## Usage 
-`odis2vcp.py [-h] -i IN [-f FMT] -d DESC`
+`python odis2vcp.py [-h] -i IN [-f FMT] -d DESC`
 
 ## Arguments
 ```
