@@ -1,7 +1,8 @@
 # odis2vcp
 Converter for ODIS XML Datasets to VCP XML format.
 
-usage: odis2vcp.py [-h] -i IN [-f FMT] -d DESC
+Usage: 
+`odis2vcp.py [-h] -i IN [-f FMT] -d DESC`
 
 Arguments:
   -h, --help            show this help message and exit
@@ -10,7 +11,7 @@ Arguments:
   -d DESC, --desc DESC  Output file description. E.g. "Seat Leon 2016"
 
 Example: 
-`python odis2vcp.py -i ODIS_dataset.xml -d "Seat Leon 2016".`
+`python odis2vcp.py -i ODIS_dataset.xml -d "Seat Leon 2016"`
 
 Result:
 ```Module: 19
