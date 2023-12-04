@@ -31,8 +31,8 @@ def extract_to_raw(dataset, filename, diagnostic_address):
    extracted_dataset_counter=extracted_dataset_counter+1
  
    filename = diagnostic_address + " " + filename + ".bin"
-   print " Extracting raw data to \"%s\"" % filename
-   print "" 
+   print (" Extracting raw data to \"%s\"" % filename)
+   print ("") 
    output_file = open(filename,"wb")
    binary_data = binascii.unhexlify(dataset)
    output_file.write(binary_data)
@@ -87,8 +87,7 @@ def convert_to_vcp(dataset_data, diagnostic_address, start_address, zdc_name, zd
    
    #some quick and dirty calculations to determine the right size and string format for file size
    dataset_size_calc = len(dataset_raw.encode('utf-8'))
-   dataset_size_calc = dataset_size_calc/2
-   dataset_size_calc = hex(dataset_size_calc)
+   dataset_size_calc = hex(int(dataset_size_calc/2))
    dataset_size_calc = str(dataset_size_calc)
 
    dataset_size = doc.createElement("GROESSE-DEKOMPRIMIERT")
@@ -102,8 +101,8 @@ def convert_to_vcp(dataset_data, diagnostic_address, start_address, zdc_name, zd
 # write xml data
    filename = diagnostic_address + " VCP " + filename + ".xml"
    
-   print " Extracting VCP data to \"%s\"" % filename
-   print "" 
+   print (" Extracting VCP data to \"%s\"" % filename)
+   print ("") 
    
    doc.writexml( open(filename, 'w'),
                indent="  ",
@@ -126,19 +125,19 @@ def parse_small_oe_file():
        if parameter_data.hasAttribute("DIAGNOSTIC_ADDRESS"):
           diagnostic_address = parameter_data.getAttribute("DIAGNOSTIC_ADDRESS")
           diagnostic_address = diagnostic_address.replace ("0x00","")
-          print " Module: %s" % diagnostic_address
+          print (" Module: %s" % diagnostic_address)
        if parameter_data.hasAttribute("START_ADDRESS"):
           start_address = parameter_data.getAttribute("START_ADDRESS")
-          print " Start_Address: %s" % start_address       
+          print (" Start_Address: %s" % start_address)
        if parameter_data.hasAttribute("ZDC_NAME"):
           zdc_name = parameter_data.getAttribute("ZDC_NAME")
-          print " ZDC Name: %s" % zdc_name		  
+          print (" ZDC Name: %s" % zdc_name)
        if parameter_data.hasAttribute("ZDC_VERSION"):
           zdc_version = parameter_data.getAttribute("ZDC_VERSION")
-          print " ZDC version: %s" % zdc_version
+          print (" ZDC version: %s" % zdc_version)
        if parameter_data.hasAttribute("LOGIN"):
           login = parameter_data.getAttribute("LOGIN")
-          print " Login: %s" % login
+          print (" Login: %s" % login)
 #set filename, e.g. 19 ZL12345 - Seat Leon 2016		  
           filename = start_address + " " + zdc_name + " - " + file_prefix
 	   
@@ -157,9 +156,9 @@ def parse_small_oe_file():
 # run the parser. 
 parse_small_oe_file()   
 
-print ""
+print ("")
 
 if file_output_format == "raw":
-   print " %s of %s datasets extracted to %s format" % (extracted_dataset_counter, dataset_counter, file_output_format) 
+   print (" %s of %s datasets extracted to %s format" % (extracted_dataset_counter, dataset_counter, file_output_format) )
 else:
-   print " %s of %s datasets extracted to VCP format" % (extracted_dataset_counter, dataset_counter) 
+   print (" %s of %s datasets extracted to VCP format" % (extracted_dataset_counter, dataset_counter) )
